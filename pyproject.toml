@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nz-nonergodic-model"
+version = "0.1.0"
+description = "Python utilities for New Zealand ergodic ground-motion prediction and SS14 site correction."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Your Name" }
+]
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "openpyxl>=3.1"
+]
+
+[project.scripts]
+nz-nonergodic = "nz_nonergodic_model.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nz_nonergodic_model = ["data/*.csv"]
