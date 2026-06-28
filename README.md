@@ -6,7 +6,7 @@ The workflow is:
 
 1. calculate the ergodic rock prediction;
 2. apply the Stewart & Seyhan (2014) site correction;
-3. add the trained Type-2 non-ergodic correction:
+3. add the trained non-ergodic correction:
    `dc_0 + dc_1e + dc_1as + dc_1bs + c_cap_path`.
 
 This repository is for using the trained model. It does not rerun INLA.
@@ -39,9 +39,9 @@ Optional columns:
 - `eqid`: earthquake/source ID
 - `ssn`: station ID
 
-For full Type-2 non-ergodic predictions on records used in model fitting, the
+For full non-ergodic predictions on records used in model fitting, the
 input should include `rsn` so the code can match the trained source, site, and
-path terms in the Type-2 output files.
+path terms in the output files.
 
 ## Run
 
@@ -57,7 +57,7 @@ With SS14 site correction:
 nz-nonergodic predict --input examples/example_input.csv --output outputs/site_predictions.csv --apply-site-correction
 ```
 
-With the trained Type-2 non-ergodic model:
+With the trained non-ergodic model:
 
 ```bash
 nz-nonergodic predict \
@@ -98,7 +98,7 @@ Key columns:
 - `site_factor`: `exp(site_term_ln)`, when requested
 - `log10_y_site`: site-corrected prediction in log10 units, when requested
 - `y_site_g`: site-corrected spectral acceleration in g, when requested
-- `delta_nonergodic_mean`: total Type-2 non-ergodic correction in log10 units
+- `delta_nonergodic_mean`: total non-ergodic correction in log10 units
 - `log10_y_nonergodic`: final non-ergodic prediction in log10 units
 - `y_nonergodic_g`: final non-ergodic prediction in g
 
